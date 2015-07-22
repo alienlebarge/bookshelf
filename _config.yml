@@ -1,0 +1,11 @@
+# Site settings
+title: alienlebarge's bookshelf
+email: cedric.aellen@alienlebarge.ch
+description: > alienlebarge's bookshelf
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol for your site
+twitter_username: alienlebarge
+github_username:  alienlebarge
+
+# Build settings
+markdown: kramdown
