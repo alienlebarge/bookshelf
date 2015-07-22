@@ -9,3 +9,4 @@ github_username:  alienlebarge
 
 # Build settings
 markdown: kramdown
+exclude: [node_modules, Gruntfile.js, package,json, LICENSE, README.md]
