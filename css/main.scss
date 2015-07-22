@@ -9,8 +9,9 @@
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "settings.defaults",
-        "generic.normalize",
-        "generic.box-sizing"
-        "base.page"
+  "settings.defaults",
+  "generic.normalize",
+  "generic.box-sizing"
+  "base.page"
+  "base.headings"
 ;
