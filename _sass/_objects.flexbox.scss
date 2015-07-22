@@ -1,0 +1,16 @@
+/**
+ * Flexbox
+ */
+
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex__item {
+  flex-basis: 100%/$columns;
+  flex-grow: 0;
+  flex-shrink: 1;
+  //margin: $base-spacing-unit/4;
+  padding: $base-spacing-unit/4;
+}
