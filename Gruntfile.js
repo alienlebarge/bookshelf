@@ -4,6 +4,17 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
 
+    sass: {
+      dist: {
+        options: {
+          style: 'expanded'
+        },
+          files: {
+            'css/style.css': '_sass/_style.scss'
+        }
+      }
+    },
+
     jekyll: {                             // Task
       dist: {                             // Target
         options: {                        // Target options
@@ -26,7 +37,8 @@ module.exports = function(grunt) {
 
   });
 
-  // Load the plugin that provides the "uglify" task.
+  // Load the plugins.
+  grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-jekyll');
   grunt.loadNpmTasks('grunt-gh-pages');
 
