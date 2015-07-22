@@ -5,8 +5,8 @@ layout: default
 <div class="flex">
 {% for book in site.data.books %}
   <article class="flex__item">
-    <img src="{{book.image}}" alt="" />
-    <h3>{{ book.title }}</h3>
+    <img src="{{book.image.url}}" alt="" />
+    <h3><a href="{{book.url}}">{{ book.title }}</a></h3>
     <p>
       {{ book.description }}
     </p>
