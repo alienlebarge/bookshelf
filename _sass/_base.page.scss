@@ -10,11 +10,12 @@ html {
   background-color: $base-background-color;
 
   font-family: $base-font-family;
+  font-size: $base-font-size-fallback;
   font-size: $base-font-size;
   -moz-osx-font-smoothing: grayscale; /* [1] */
   -webkit-font-smoothing: antialiased; /* [1] */
   font-weight: $base-font-weight;
   line-height: $base-line-height;
 
-  padding: $base-spacing-unit;
+  padding: 4*$base-spacing-unit;
 }
