@@ -87,7 +87,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-gh-pages');
 
   // Default task(s).
-  grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin' 'jekyll']);
-  grunt.registerTask('publish', ['sass', 'autoprefixer', 'cssmin' 'jekyll', 'gh-pages']);
+  grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'jekyll']);
+  grunt.registerTask('publish', ['sass', 'autoprefixer', 'cssmin', 'jekyll', 'gh-pages']);
 
 };
