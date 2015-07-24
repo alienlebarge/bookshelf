@@ -72,6 +72,27 @@ module.exports = function(grunt) {
 
 
 
+    watch: {
+      html: {
+        files: ['**/*.html'],
+        tasks: ['jekyll:dev'],
+        options: {
+          spawn: false,
+        },
+      },
+      css: {
+        files: ['_sass/*.scss'],
+        tasks: ['sass', 'autoprefixer', 'cssmin', 'jekyll:dev'],
+        options: {
+          spawn: false,
+        },
+      },
+    },
+
+
+
+
+
     'gh-pages': {
       options: {
         base: '_site'
@@ -90,9 +111,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-jekyll');
+  grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-gh-pages');
 
   // Default task(s).
+  grunt.registerTask('dev', ['sass', 'autoprefixer', 'cssmin', 'jekyll:dev', 'watch']);
   grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'jekyll:dev']);
   grunt.registerTask('publish', ['sass', 'autoprefixer', 'cssmin', 'jekyll:dist', 'gh-pages']);
 
