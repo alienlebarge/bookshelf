@@ -53,11 +53,17 @@ module.exports = function(grunt) {
 
 
 
-    jekyll: {                             // Task
-      dist: {                             // Target
-        options: {                        // Target options
+    jekyll: {
+      dist: {
+        options: {
           dest: '_site',
           config: '_config.yml'
+        }
+      },
+      dev: {
+        options: {
+          dest: '_site',
+          config: '_config.dev.yml'
         }
       },
     },
@@ -87,7 +93,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-gh-pages');
 
   // Default task(s).
-  grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'jekyll']);
-  grunt.registerTask('publish', ['sass', 'autoprefixer', 'cssmin', 'jekyll', 'gh-pages']);
+  grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin', 'jekyll:dev']);
+  grunt.registerTask('publish', ['sass', 'autoprefixer', 'cssmin', 'jekyll:dist', 'gh-pages']);
 
 };
