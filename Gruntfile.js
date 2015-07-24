@@ -34,6 +34,25 @@ module.exports = function(grunt) {
 
 
 
+    cssmin: {
+      options: {
+        sourceMap: true
+      },
+      target: {
+        files: [{
+          expand: true,
+          cwd: 'css',
+          src: ['*.css', '!*.min.css'],
+          dest: 'css',
+          ext: '.min.css'
+        }]
+      }
+    },
+
+
+
+
+
     jekyll: {                             // Task
       dist: {                             // Target
         options: {                        // Target options
@@ -63,11 +82,12 @@ module.exports = function(grunt) {
   // Load the plugins.
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-autoprefixer');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-jekyll');
   grunt.loadNpmTasks('grunt-gh-pages');
 
   // Default task(s).
-  grunt.registerTask('default', ['sass', 'autoprefixer', 'jekyll']);
-  grunt.registerTask('publish', ['sass', 'autoprefixer', 'jekyll', 'gh-pages']);
+  grunt.registerTask('default', ['sass', 'autoprefixer', 'cssmin' 'jekyll']);
+  grunt.registerTask('publish', ['sass', 'autoprefixer', 'cssmin' 'jekyll', 'gh-pages']);
 
 };
