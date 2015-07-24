@@ -47,3 +47,38 @@
   image:
     url: http://static.lukew.com/mobilefirst_bg.png
   link: http://abookapart.com/products/mobile-first
+- title: Design Is a Job
+  author: Mike Monteiro
+  collection: A Book Appart
+  description: Co-founder of Mule Design and raconteur Mike Monteiro wants to help you do your job better. From contracts to selling design, from working with clients to working with each other, you’ll learn why navigating the business of design is just as important as the craft of it. Cultivated from his own experience, Mike packs this brief book with knowledge you can’t afford not to know.
+  image:
+    url: http://d.gr-assets.com/books/1333415533l/13574985.jpg
+  link: http://abookapart.com/products/design-is-a-job
+- title: Content Strategy For Mobile
+  author: Karen McGrane
+  collection: A Book Appart
+  description: You don’t get to decide which platform or device your customers use to access your content they do.<br/>Mobile isn’t just smartphones, and it doesn’t necessarily mean you are on the move. It’s a proliferation of devices, platforms, and screensizes — from the tiniest “dumb” phones to the desktop web. How can you be sure that your content will work everywhere, all the time?<br />Karen McGrane will teach you everything you need to get your content onto mobile devices (and more). You’ll first gather data to help you make the case for a mobile strategy, then learn how to publish flexibly to multiple channels. Along the way, you'll get valuable advice on adapting your workflow to a world of emerging devices, platforms, screen sizes, and resolutions. And all in less time than it takes you to fly from New York to Chicago.
+  image:
+    url: http://csf.community/images/74.png
+  link: http://abookapart.com/products/content-strategy-for-mobile
+- title: Just Enough Research
+  author: Erika Hall
+  collection: A Book Appart
+  description: Good research is about asking more and better questions, and thinking critically about the answers. It’s something every member of your team can and should do, and which everyone can learn, quickly. And done well, it will save you time and money by reducing unknowns and creating a solid foundation to build the right thing, in the most effective way.<br />In Just Enough Research, co-founder of Mule Design Erika Hall distills her experience into a brief cookbook of research methods. Learn how to discover your competitive advantages, spot your own blind spots and biases, understand and harness your findings, and why you should never, ever hold a focus group. You’ll start doing good research faster than you can plan your next pitch.
+  image:
+    url: http://d.gr-assets.com/books/1379351795l/17236175.jpg
+  link: http://abookapart.com/products/just-enough-research
+- title:
+  author:
+  collection: A Book Appart
+  description:
+  image:
+    url:
+  link:
+- title:
+  author:
+  collection: A Book Appart
+  description:
+  image:
+    url:
+  link:
