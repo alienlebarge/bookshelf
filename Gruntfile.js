@@ -20,6 +20,20 @@ module.exports = function(grunt) {
 
 
 
+    autoprefixer: {
+      options: {
+        browsers: ['last 2 versions', 'ie 8', 'ie 9'],
+        map: true
+      },
+      dist: {
+        src: 'css/style.css'
+      }
+    },
+
+
+
+
+
     jekyll: {                             // Task
       dist: {                             // Target
         options: {                        // Target options
@@ -48,11 +62,12 @@ module.exports = function(grunt) {
 
   // Load the plugins.
   grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-jekyll');
   grunt.loadNpmTasks('grunt-gh-pages');
 
   // Default task(s).
-  grunt.registerTask('default', ['jekyll']);
-  grunt.registerTask('publish', ['jekyll', 'gh-pages']);
+  grunt.registerTask('default', ['sass', 'autoprefixer', 'jekyll']);
+  grunt.registerTask('publish', ['sass', 'autoprefixer', 'jekyll', 'gh-pages']);
 
 };
