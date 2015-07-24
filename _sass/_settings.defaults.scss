@@ -1,17 +1,17 @@
-$base-background-color: #eee;
+$inuit-base-font-size:          24px !default;
+$inuit-base-line-height:        $inuit-base-font-size*1.5 !default;
+$inuit-base-text-color:         #333 !default;
+$inuit-base-background-color:   #eee;
 
-$base-font-size: 4.5vmin;
-$base-line-height: 1.5;
-$base-font-family: "skolar", serif;
-$base-font-weight: light;
+$inuit-base-font-family:        "skolar", serif;
+$inuit-base-font-weight:        light;
 
-$heading-font-family: "kinesis-pro-3", sans-serif;
-$heading-size-1: $base-font-size*3;
-$heading-size-2: $base-font-size*2;
-$heading-size-3: $base-font-size*1.6;
-$heading-size-4: $base-font-size*1.2;
-$heading-size-5: $base-font-size;
-$heading-size-6: $base-font-size*.8;
+$inuit-headings-font-family:    "kinesis-pro-3", sans-serif;
+$inuit-headings-font-weight:    normal;
 
-$base-spacing-unit: 1vw;
-$columns: 1;
+$inuit-heading-size-1:  54px !default;
+$inuit-heading-size-2:  45px !default;
+$inuit-heading-size-3:  36px !default;
+$inuit-heading-size-4:  30px !default;
+$inuit-heading-size-5:  24px !default;
+$inuit-heading-size-6:  16px !default;

@@ -5,3 +5,4 @@ node_modules/.bin/grunt-jekyll
 node_modules
 .grunt
 css
+_sass/bower_components

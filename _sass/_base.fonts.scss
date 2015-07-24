@@ -1,0 +1,27 @@
+///*------------------------------------*\
+//    #FONTS
+//\*------------------------------------*/
+
+// set the font to use
+
+$inuit-base-font-family: serif !default;
+$inuit-base-font-weight: normal !default;
+
+$inuit-headings-font-family: sans-serif !default;
+$inuit-headings-font-weight: normal !default;
+
+
+html {
+  font-family: $inuit-base-font-family;
+  font-weight: $inuit-base-font-weight;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $inuit-headings-font-family;
+  font-weight: $inuit-headings-font-weight;
+}

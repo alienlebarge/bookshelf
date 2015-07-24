@@ -6,10 +6,15 @@
 
 @import
   "settings.defaults",
-  "generic.normalize",
-  "generic.box-sizing",
-  "base.page",
-  "base.headings",
-  "base.images",
-  "objects.flexbox"
+  "bower_components/inuit-defaults/settings.defaults",
+  "bower_components/inuit-responsive-settings/settings.responsive",
+  "bower_components/inuit-mixins/tools.mixins",
+  "bower_components/inuit-responsive-tools/tools.responsive",
+  "bower_components/inuit-normalize/generic.normalize",
+  "bower_components/inuit-box-sizing/generic.box-sizing",
+  "bower_components/inuit-page/base.page",
+  "base.fonts",
+  "bower_components/inuit-headings/base.headings",
+  "bower_components/inuit-images/base.images",
+  "bower_components/inuit-flexbox/objects.flexbox"
 ;
