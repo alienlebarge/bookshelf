@@ -68,17 +68,31 @@
   image:
     url: http://d.gr-assets.com/books/1379351795l/17236175.jpg
   link: http://abookapart.com/products/just-enough-research
-- title:
-  author:
+- title: Sass For Web Designer
+  author: Dan Cederholm
   collection: A Book Appart
-  description:
+  description: "Let’s face it: CSS is hard. Our stylesheets are more complex than they used to be, and we’re bending the spec to do as much as it can. Can Sass help?<br />A reluctant convert to Sass, Dan Cederholm shares how he came around to the popular CSS pre-processor, and provides a clear-cut path to taking better control of your code (all the while working the way you always have). From getting started to advanced techniques, Dan will help you level up your stylesheets and instantly start taking advantage of the power of Sass."
   image:
-    url:
-  link:
-- title:
-  author:
+    url: http://ecx.images-amazon.com/images/I/31Tckp8k2pL._SY344_BO1,204,203,200_.jpg
+  link: http://abookapart.com/products/sass-for-web-designers
+- title: On Web Typography
+  author: Jason Santa Maria
   collection: A Book Appart
-  description:
+  description: "Typography is your design’s voice and the most powerful tool you have to communicate with your readers. Learn how to wield type with care and wit: how to evaluate typefaces, consider technical constraints, create flexible typographic systems, and put together your own collection of favorite faces.<br />Jason Santa Maria wants you to see type beyond code or flourishes. You’ll discover how typography shapes the way we read and how you can adapt the craft’s practices for the screen. So go ahead. Choose, combine, and set typefaces with ease—and invite readers in."
   image:
-    url:
-  link:
+    url: http://www.subtraction.com/wp-content/uploads/2014/09/2014-09-11-on-web-typography-cover.jpg
+  link: http://abookapart.com/products/on-web-typography
+- title: You're My Favorite Client
+  author: Mike Monteiro
+  collection: A Book Appart
+  description: "Whether you’re a designer or not, you make design decisions every day.<br />Successful design projects require equal participation from both the client and the design team. Yet, for most people who buy design, the process remains a mystery.<br />In his follow-up to Design Is a Job, Mike Monteiro demystifies the design process and helps you prepare for your role. Ensure you’re asking the right questions, giving effective feedback, and hiring designers who will challenge you to make your product the best it can be."
+  image:
+    url: http://assets.uxbooth.com/uploads/2014/10/ABA-12.png
+  link: http://abookapart.com/products/youre-my-favorite-client
+- title: Responsible Responsive Design
+  author: Scott Jehl
+  collection: A Book Appart
+  description: "Responsive design has immeasurably improved multi-device, multi-browser visual layout—but it’s only the first step in building responsively. Learn how to turn a critical eye on your designs as you develop for new contexts (what does mobile really mean?) and screen features, speedy and lagging networks, and truly global audiences. Serve the right content across platforms, and tune for performance. Scott Jehl tackles those topics and more, ensuring that the sites and apps you build today last far into the future."
+  image:
+    url: http://d.gr-assets.com/books/1416385239l/23588216.jpg
+  link: http://abookapart.com/products/responsible-responsive-design
