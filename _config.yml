@@ -2,7 +2,7 @@
 title: alienlebarge's bookshelf
 email: cedric.aellen@alienlebarge.ch
 description: alienlebarge's bookshelf
-baseurl: "/bookshelf/" # the subpath of your site, e.g. /blog/
+baseurl: "/bookshelf" # the subpath of your site, e.g. /blog/
 url: "http://www.alienlebarge.ch" # the base hostname & protocol for your site
 twitter_username: alienlebarge
 github_username:  alienlebarge
