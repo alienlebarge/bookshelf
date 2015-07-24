@@ -2,17 +2,20 @@
 layout: default
 ---
 
-<div class="flex">
 {% for book in site.data.books %}
-  <article class="flex__item">
-    <img src="{{book.image.url}}" alt="" />
-    <h3><a href="{{book.url}}">{{ book.title }}</a></h3>
-    <p>
-      {{ book.description }}
-    </p>
+
+  <article class="flex">
+    <figure class="flex__item--palm--1 flex__item--lap-and-up--1">
+      <img src="{{book.image.url}}" alt="" />
+    </figure>
+    <div class="flex__item--palm--5 flex__item--lap-and-up--3">
+      <h3><a href="{{book.url}}">{{ book.title }}</a></h3>
+      <p>
+        {{ book.description }}
+      </p>
+    </div>
   </article>
 {% endfor %}
-</div>
 <div class="home">
 
   <h1 class="page-heading">Posts</h1>
