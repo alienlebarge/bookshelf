@@ -1,0 +1,32 @@
+/**
+ * Grid with flexible columns widths
+ */
+$i: 1;
+@while $i <= $inuit-flexbox-columns-number {
+  /**
+   * Flexible row with #{$i} equal width items
+   */
+  .flex-thumbnails--#{$i} {
+
+    .flex__item {
+      flex-grow: 0;
+      flex-shrink: 1;
+      flex-basis: 100%/$i;
+    }
+
+    // first row item
+    &:nth-of-type(#{$i}n+1) {
+      margin-left: -$inuit-base-spacing-unit;
+    }
+
+    // last row item
+    &:nth-of-type(#{$i}n) {
+      margin-right: -$inuit-base-spacing-unit;
+    }
+  }
+  $i: $i + 1;
+}
+
+/**
+ * .flex-thumbnails
+ */
