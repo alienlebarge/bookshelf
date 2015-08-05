@@ -1,3 +1,9 @@
+@charset "UTF-8";
+/*!
+ * inuitcss, by @csswizardry
+ *
+ * github.com/inuitcss | inuitcss.com
+ */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.
@@ -353,8 +359,14 @@ td,
 th {
   padding: 0; }
 
+/*------------------------------------*\
+    #BOX-SIZING
+\*------------------------------------*/
 /**
- * Box sizing
+ * Set the global `box-sizing` state to `border-box`.
+ *
+ * css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice
+ * paulirish.com/2012/box-sizing-border-box-ftw
  */
 html {
   box-sizing: border-box; }
@@ -362,28 +374,47 @@ html {
 *, *:before, *:after {
   box-sizing: inherit; }
 
+/*------------------------------------*\
+    #PAGE
+\*------------------------------------*/
 /**
- * Basic page
- */
-/**
- * 1. Fonts on OSX will look more consistent with other systems that do not
+ * High-, page-level styling.
+ *
+ * 1. Set the default `font-size` and `line-height` for the entire project,
+ *    sourced from our default variables. The `font-size` is calculated to exist
+ *    in ems, the `line-height` is calculated to exist unitlessly.
+ * 2. Force scrollbars to always be visible to prevent awkward ‘jumps’ when
+ *    navigating between pages that do/do not have enough content to produce
+ *    scrollbars naturally.
+ * 3. Ensure the page always fills at least the entire height of the viewport.
+ * 4. Prevent certain mobile browsers from automatically zooming fonts.
+ * 5. Fonts on OSX will look more consistent with other systems that do not
  *    render text using sub-pixel anti-aliasing.
  */
 html {
-  background-color: #eee;
-  font-family: "skolar", serif;
-  font-size: 3vw;
-  -moz-osx-font-smoothing: grayscale;
+  font-size: 1.5em;
   /* [1] */
-  -webkit-font-smoothing: antialiased;
-  /* [1] */
-  font-weight: light;
   line-height: 1.5;
-  padding: 1em; }
+  /* [1] */
+  background-color: #eee;
+  color: #333;
+  overflow-y: scroll;
+  /* [2] */
+  min-height: 100%;
+  /* [3] */
+  -webkit-text-size-adjust: 100%;
+  /* [4] */
+  -ms-text-size-adjust: 100%;
+  /* [4] */
+  -moz-osx-font-smoothing: grayscale;
+  /* [5] */
+  -webkit-font-smoothing: antialiased;
+  /* [5] */ }
 
-/**
- * Base headings
- */
+html {
+  font-family: "skolar", serif;
+  font-weight: light; }
+
 h1,
 h2,
 h3,
@@ -391,29 +422,47 @@ h4,
 h5,
 h6 {
   font-family: "kinesis-pro-3", sans-serif;
-  font-weight: 400; }
+  font-weight: normal; }
 
+/*------------------------------------*\
+    #HEADINGS
+\*------------------------------------*/
+/**
+ * Headings 1–6.
+ */
 h1 {
-  font-size: 9vw; }
+  font-size: 54px;
+  font-size: 2.25rem;
+  line-height: 1.33333; }
 
 h2 {
-  font-size: 6vw; }
+  font-size: 45px;
+  font-size: 1.875rem;
+  line-height: 1.6; }
 
 h3 {
-  font-size: 4.8vw; }
+  font-size: 36px;
+  font-size: 1.5rem;
+  line-height: 1; }
 
 h4 {
-  font-size: 3.6vw; }
+  font-size: 30px;
+  font-size: 1.25rem;
+  line-height: 1.2; }
 
 h5 {
-  font-size: 3vw; }
+  font-size: 24px;
+  font-size: 1rem;
+  line-height: 1.5; }
 
 h6 {
-  font-size: 2.4vw; }
+  font-size: 16px;
+  font-size: 0.66667rem;
+  line-height: 2.25; }
 
-/**
- * Images
- */
+/*------------------------------------*\
+    #IMAGES
+\*------------------------------------*/
 /**
  * 1. Fluid images for responsive purposes.
  * 2. Offset `alt` text from surrounding copy.
@@ -430,26 +479,1265 @@ img {
   /* [3] */ }
 
 /**
- * Flexbox
+ * 1. Google Maps breaks if `max-width: 100%` acts upon it; use their selector
+ *    to remove the effects.
+ * 2. If a `width` and/or `height` attribute have been explicitly defined, let’s
+ *    not make the image fluid.
+ */
+.gm-style img,
+img[width],
+img[height] {
+  /* [2] */
+  max-width: none; }
+
+/*------------------------------------*\
+    #FLEXBOX
+\*------------------------------------*/
+/**
+ * Row
+ *
+ * 1. Defines the default behaviour for how flex items are laid out along the
+ *    cross axis on the current line. Item are aligned at the top. Items are
+ *    aligned to the top.
+ * 2. Defines the alignment along the main axis. Items are aligne on the left.
  */
 .flex {
-  display: -webkit-flex;
   display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
+  -webkit-flex-direction: row;
+      -ms-flex-direction: row;
+          flex-direction: row;
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
-          flex-wrap: wrap; }
+          flex-wrap: wrap;
+  -webkit-align-items: flex-start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  /* [1] */
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  /* [2] */
+  margin-right: -36px;
+  margin-left: -36px; }
 
+/**
+ * Flex item
+ */
 .flex__item {
-  -webkit-flex-basis: 50%;
-      -ms-flex-preferred-size: 50%;
-          flex-basis: 50%;
-  -webkit-flex-grow: 0;
-      -ms-flex-positive: 0;
-          flex-grow: 0;
-  -webkit-flex-shrink: 1;
-      -ms-flex-negative: 1;
-          flex-shrink: 1;
-  padding: 0.25em; }
+  padding-right: 36px;
+  padding-left: 36px; }
+
+/**
+ * Grid with flexible columns widths
+ */
+/**
+ * Flexible item with a size of 1
+ */
+.flex__item--1 {
+  -webkit-flex: 1;
+  -ms-flex: 1;
+  flex: 1; }
+
+/**
+ * Flexible item with a size of 2
+ */
+.flex__item--2 {
+  -webkit-flex: 2;
+  -ms-flex: 2;
+  flex: 2; }
+
+/**
+ * Flexible item with a size of 3
+ */
+.flex__item--3 {
+  -webkit-flex: 3;
+  -ms-flex: 3;
+  flex: 3; }
+
+/**
+ * Flexible item with a size of 4
+ */
+.flex__item--4 {
+  -webkit-flex: 4;
+  -ms-flex: 4;
+  flex: 4; }
+
+/**
+ * Flexible item with a size of 5
+ */
+.flex__item--5 {
+  -webkit-flex: 5;
+  -ms-flex: 5;
+  flex: 5; }
+
+/**
+ * Flexible item with a size of 6
+ */
+.flex__item--6 {
+  -webkit-flex: 6;
+  -ms-flex: 6;
+  flex: 6; }
+
+/**
+ * Flexible item with a size of 7
+ */
+.flex__item--7 {
+  -webkit-flex: 7;
+  -ms-flex: 7;
+  flex: 7; }
+
+/**
+ * Flexible item with a size of 8
+ */
+.flex__item--8 {
+  -webkit-flex: 8;
+  -ms-flex: 8;
+  flex: 8; }
+
+/**
+ * Flexible item with a size of 9
+ */
+.flex__item--9 {
+  -webkit-flex: 9;
+  -ms-flex: 9;
+  flex: 9; }
+
+/**
+ * Flexible item with a size of 10
+ */
+.flex__item--10 {
+  -webkit-flex: 10;
+  -ms-flex: 10;
+  flex: 10; }
+
+/**
+ * Flexible item with a size of 11
+ */
+.flex__item--11 {
+  -webkit-flex: 11;
+  -ms-flex: 11;
+  flex: 11; }
+
+/**
+ * Flexible item with a size of 12
+ */
+.flex__item--12 {
+  -webkit-flex: 12;
+  -ms-flex: 12;
+  flex: 12; }
+
+/**
+ * Flexible item with a size of 100% (full width)
+ */
+.flex__item--full {
+  -webkit-flex: 1 1 100%;
+  -ms-flex: 1 1 100%;
+  flex: 1 1 100%; }
+
+@media screen and (max-width: 44.9375em) {
+  /**
+   * Flexible item with a size of 1 for palm viewport
+   */
+  .flex__item--palm--1 {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+
+  /**
+   * Flexible item with a size of 2 for palm viewport
+   */
+  .flex__item--palm--2 {
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2; }
+
+  /**
+   * Flexible item with a size of 3 for palm viewport
+   */
+  .flex__item--palm--3 {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3; }
+
+  /**
+   * Flexible item with a size of 4 for palm viewport
+   */
+  .flex__item--palm--4 {
+    -webkit-flex: 4;
+    -ms-flex: 4;
+    flex: 4; }
+
+  /**
+   * Flexible item with a size of 5 for palm viewport
+   */
+  .flex__item--palm--5 {
+    -webkit-flex: 5;
+    -ms-flex: 5;
+    flex: 5; }
+
+  /**
+   * Flexible item with a size of 6 for palm viewport
+   */
+  .flex__item--palm--6 {
+    -webkit-flex: 6;
+    -ms-flex: 6;
+    flex: 6; }
+
+  /**
+   * Flexible item with a size of 7 for palm viewport
+   */
+  .flex__item--palm--7 {
+    -webkit-flex: 7;
+    -ms-flex: 7;
+    flex: 7; }
+
+  /**
+   * Flexible item with a size of 8 for palm viewport
+   */
+  .flex__item--palm--8 {
+    -webkit-flex: 8;
+    -ms-flex: 8;
+    flex: 8; }
+
+  /**
+   * Flexible item with a size of 9 for palm viewport
+   */
+  .flex__item--palm--9 {
+    -webkit-flex: 9;
+    -ms-flex: 9;
+    flex: 9; }
+
+  /**
+   * Flexible item with a size of 10 for palm viewport
+   */
+  .flex__item--palm--10 {
+    -webkit-flex: 10;
+    -ms-flex: 10;
+    flex: 10; }
+
+  /**
+   * Flexible item with a size of 11 for palm viewport
+   */
+  .flex__item--palm--11 {
+    -webkit-flex: 11;
+    -ms-flex: 11;
+    flex: 11; }
+
+  /**
+   * Flexible item with a size of 12 for palm viewport
+   */
+  .flex__item--palm--12 {
+    -webkit-flex: 12;
+    -ms-flex: 12;
+    flex: 12; }
+
+  /**
+   * Flexible item with a size of 100% (full width) for palm viewport
+   */
+  .flex__item--palm--full {
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%; } }
+@media screen and (min-width: 45em) and (max-width: 63.9375em) {
+  /**
+   * Flexible item with a size of 1 for lap viewport
+   */
+  .flex__item--lap--1 {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+
+  /**
+   * Flexible item with a size of 2 for lap viewport
+   */
+  .flex__item--lap--2 {
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2; }
+
+  /**
+   * Flexible item with a size of 3 for lap viewport
+   */
+  .flex__item--lap--3 {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3; }
+
+  /**
+   * Flexible item with a size of 4 for lap viewport
+   */
+  .flex__item--lap--4 {
+    -webkit-flex: 4;
+    -ms-flex: 4;
+    flex: 4; }
+
+  /**
+   * Flexible item with a size of 5 for lap viewport
+   */
+  .flex__item--lap--5 {
+    -webkit-flex: 5;
+    -ms-flex: 5;
+    flex: 5; }
+
+  /**
+   * Flexible item with a size of 6 for lap viewport
+   */
+  .flex__item--lap--6 {
+    -webkit-flex: 6;
+    -ms-flex: 6;
+    flex: 6; }
+
+  /**
+   * Flexible item with a size of 7 for lap viewport
+   */
+  .flex__item--lap--7 {
+    -webkit-flex: 7;
+    -ms-flex: 7;
+    flex: 7; }
+
+  /**
+   * Flexible item with a size of 8 for lap viewport
+   */
+  .flex__item--lap--8 {
+    -webkit-flex: 8;
+    -ms-flex: 8;
+    flex: 8; }
+
+  /**
+   * Flexible item with a size of 9 for lap viewport
+   */
+  .flex__item--lap--9 {
+    -webkit-flex: 9;
+    -ms-flex: 9;
+    flex: 9; }
+
+  /**
+   * Flexible item with a size of 10 for lap viewport
+   */
+  .flex__item--lap--10 {
+    -webkit-flex: 10;
+    -ms-flex: 10;
+    flex: 10; }
+
+  /**
+   * Flexible item with a size of 11 for lap viewport
+   */
+  .flex__item--lap--11 {
+    -webkit-flex: 11;
+    -ms-flex: 11;
+    flex: 11; }
+
+  /**
+   * Flexible item with a size of 12 for lap viewport
+   */
+  .flex__item--lap--12 {
+    -webkit-flex: 12;
+    -ms-flex: 12;
+    flex: 12; }
+
+  /**
+   * Flexible item with a size of 100% (full width) for lap viewport
+   */
+  .flex__item--lap--full {
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%; } }
+@media screen and (min-width: 45em) {
+  /**
+   * Flexible item with a size of 1 for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--1 {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+
+  /**
+   * Flexible item with a size of 2 for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--2 {
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2; }
+
+  /**
+   * Flexible item with a size of 3 for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--3 {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3; }
+
+  /**
+   * Flexible item with a size of 4 for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--4 {
+    -webkit-flex: 4;
+    -ms-flex: 4;
+    flex: 4; }
+
+  /**
+   * Flexible item with a size of 5 for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--5 {
+    -webkit-flex: 5;
+    -ms-flex: 5;
+    flex: 5; }
+
+  /**
+   * Flexible item with a size of 6 for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--6 {
+    -webkit-flex: 6;
+    -ms-flex: 6;
+    flex: 6; }
+
+  /**
+   * Flexible item with a size of 7 for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--7 {
+    -webkit-flex: 7;
+    -ms-flex: 7;
+    flex: 7; }
+
+  /**
+   * Flexible item with a size of 8 for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--8 {
+    -webkit-flex: 8;
+    -ms-flex: 8;
+    flex: 8; }
+
+  /**
+   * Flexible item with a size of 9 for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--9 {
+    -webkit-flex: 9;
+    -ms-flex: 9;
+    flex: 9; }
+
+  /**
+   * Flexible item with a size of 10 for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--10 {
+    -webkit-flex: 10;
+    -ms-flex: 10;
+    flex: 10; }
+
+  /**
+   * Flexible item with a size of 11 for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--11 {
+    -webkit-flex: 11;
+    -ms-flex: 11;
+    flex: 11; }
+
+  /**
+   * Flexible item with a size of 12 for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--12 {
+    -webkit-flex: 12;
+    -ms-flex: 12;
+    flex: 12; }
+
+  /**
+   * Flexible item with a size of 100% (full width) for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--full {
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%; } }
+@media screen and (max-width: 63.9375em) {
+  /**
+   * Flexible item with a size of 1 for portable viewport
+   */
+  .flex__item--portable--1 {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+
+  /**
+   * Flexible item with a size of 2 for portable viewport
+   */
+  .flex__item--portable--2 {
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2; }
+
+  /**
+   * Flexible item with a size of 3 for portable viewport
+   */
+  .flex__item--portable--3 {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3; }
+
+  /**
+   * Flexible item with a size of 4 for portable viewport
+   */
+  .flex__item--portable--4 {
+    -webkit-flex: 4;
+    -ms-flex: 4;
+    flex: 4; }
+
+  /**
+   * Flexible item with a size of 5 for portable viewport
+   */
+  .flex__item--portable--5 {
+    -webkit-flex: 5;
+    -ms-flex: 5;
+    flex: 5; }
+
+  /**
+   * Flexible item with a size of 6 for portable viewport
+   */
+  .flex__item--portable--6 {
+    -webkit-flex: 6;
+    -ms-flex: 6;
+    flex: 6; }
+
+  /**
+   * Flexible item with a size of 7 for portable viewport
+   */
+  .flex__item--portable--7 {
+    -webkit-flex: 7;
+    -ms-flex: 7;
+    flex: 7; }
+
+  /**
+   * Flexible item with a size of 8 for portable viewport
+   */
+  .flex__item--portable--8 {
+    -webkit-flex: 8;
+    -ms-flex: 8;
+    flex: 8; }
+
+  /**
+   * Flexible item with a size of 9 for portable viewport
+   */
+  .flex__item--portable--9 {
+    -webkit-flex: 9;
+    -ms-flex: 9;
+    flex: 9; }
+
+  /**
+   * Flexible item with a size of 10 for portable viewport
+   */
+  .flex__item--portable--10 {
+    -webkit-flex: 10;
+    -ms-flex: 10;
+    flex: 10; }
+
+  /**
+   * Flexible item with a size of 11 for portable viewport
+   */
+  .flex__item--portable--11 {
+    -webkit-flex: 11;
+    -ms-flex: 11;
+    flex: 11; }
+
+  /**
+   * Flexible item with a size of 12 for portable viewport
+   */
+  .flex__item--portable--12 {
+    -webkit-flex: 12;
+    -ms-flex: 12;
+    flex: 12; }
+
+  /**
+   * Flexible item with a size of 100% (full width) for portable viewport
+   */
+  .flex__item--portable--full {
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%; } }
+@media screen and (min-width: 64em) {
+  /**
+   * Flexible item with a size of 1 for desk viewport
+   */
+  .flex__item--desk--1 {
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1; }
+
+  /**
+   * Flexible item with a size of 2 for desk viewport
+   */
+  .flex__item--desk--2 {
+    -webkit-flex: 2;
+    -ms-flex: 2;
+    flex: 2; }
+
+  /**
+   * Flexible item with a size of 3 for desk viewport
+   */
+  .flex__item--desk--3 {
+    -webkit-flex: 3;
+    -ms-flex: 3;
+    flex: 3; }
+
+  /**
+   * Flexible item with a size of 4 for desk viewport
+   */
+  .flex__item--desk--4 {
+    -webkit-flex: 4;
+    -ms-flex: 4;
+    flex: 4; }
+
+  /**
+   * Flexible item with a size of 5 for desk viewport
+   */
+  .flex__item--desk--5 {
+    -webkit-flex: 5;
+    -ms-flex: 5;
+    flex: 5; }
+
+  /**
+   * Flexible item with a size of 6 for desk viewport
+   */
+  .flex__item--desk--6 {
+    -webkit-flex: 6;
+    -ms-flex: 6;
+    flex: 6; }
+
+  /**
+   * Flexible item with a size of 7 for desk viewport
+   */
+  .flex__item--desk--7 {
+    -webkit-flex: 7;
+    -ms-flex: 7;
+    flex: 7; }
+
+  /**
+   * Flexible item with a size of 8 for desk viewport
+   */
+  .flex__item--desk--8 {
+    -webkit-flex: 8;
+    -ms-flex: 8;
+    flex: 8; }
+
+  /**
+   * Flexible item with a size of 9 for desk viewport
+   */
+  .flex__item--desk--9 {
+    -webkit-flex: 9;
+    -ms-flex: 9;
+    flex: 9; }
+
+  /**
+   * Flexible item with a size of 10 for desk viewport
+   */
+  .flex__item--desk--10 {
+    -webkit-flex: 10;
+    -ms-flex: 10;
+    flex: 10; }
+
+  /**
+   * Flexible item with a size of 11 for desk viewport
+   */
+  .flex__item--desk--11 {
+    -webkit-flex: 11;
+    -ms-flex: 11;
+    flex: 11; }
+
+  /**
+   * Flexible item with a size of 12 for desk viewport
+   */
+  .flex__item--desk--12 {
+    -webkit-flex: 12;
+    -ms-flex: 12;
+    flex: 12; }
+
+  /**
+   * Flexible item with a size of 100% (full width) for desk viewport
+   */
+  .flex__item--desk--full {
+    -webkit-flex: 1 1 100%;
+    -ms-flex: 1 1 100%;
+    flex: 1 1 100%; } }
+/**
+ * Make the item appear in 1 position
+ */
+.flex__item--order-1 {
+  -webkit-order: 1;
+      -ms-flex-order: 1;
+          order: 1; }
+
+/**
+ * Make the item appear in 2 position
+ */
+.flex__item--order-2 {
+  -webkit-order: 2;
+      -ms-flex-order: 2;
+          order: 2; }
+
+/**
+ * Make the item appear in 3 position
+ */
+.flex__item--order-3 {
+  -webkit-order: 3;
+      -ms-flex-order: 3;
+          order: 3; }
+
+/**
+ * Make the item appear in 4 position
+ */
+.flex__item--order-4 {
+  -webkit-order: 4;
+      -ms-flex-order: 4;
+          order: 4; }
+
+/**
+ * Make the item appear in 5 position
+ */
+.flex__item--order-5 {
+  -webkit-order: 5;
+      -ms-flex-order: 5;
+          order: 5; }
+
+/**
+ * Make the item appear in 6 position
+ */
+.flex__item--order-6 {
+  -webkit-order: 6;
+      -ms-flex-order: 6;
+          order: 6; }
+
+/**
+ * Make the item appear in 7 position
+ */
+.flex__item--order-7 {
+  -webkit-order: 7;
+      -ms-flex-order: 7;
+          order: 7; }
+
+/**
+ * Make the item appear in 8 position
+ */
+.flex__item--order-8 {
+  -webkit-order: 8;
+      -ms-flex-order: 8;
+          order: 8; }
+
+/**
+ * Make the item appear in 9 position
+ */
+.flex__item--order-9 {
+  -webkit-order: 9;
+      -ms-flex-order: 9;
+          order: 9; }
+
+/**
+ * Make the item appear in 10 position
+ */
+.flex__item--order-10 {
+  -webkit-order: 10;
+      -ms-flex-order: 10;
+          order: 10; }
+
+/**
+ * Make the item appear in 11 position
+ */
+.flex__item--order-11 {
+  -webkit-order: 11;
+      -ms-flex-order: 11;
+          order: 11; }
+
+/**
+ * Make the item appear in 12 position
+ */
+.flex__item--order-12 {
+  -webkit-order: 12;
+      -ms-flex-order: 12;
+          order: 12; }
+
+@media screen and (max-width: 44.9375em) {
+  /**
+   * Make the item appear in 1 position for palm viewport
+   */
+  .flex__item--palm--order-1 {
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1; }
+
+  /**
+   * Make the item appear in 2 position for palm viewport
+   */
+  .flex__item--palm--order-2 {
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2; }
+
+  /**
+   * Make the item appear in 3 position for palm viewport
+   */
+  .flex__item--palm--order-3 {
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3; }
+
+  /**
+   * Make the item appear in 4 position for palm viewport
+   */
+  .flex__item--palm--order-4 {
+    -webkit-order: 4;
+        -ms-flex-order: 4;
+            order: 4; }
+
+  /**
+   * Make the item appear in 5 position for palm viewport
+   */
+  .flex__item--palm--order-5 {
+    -webkit-order: 5;
+        -ms-flex-order: 5;
+            order: 5; }
+
+  /**
+   * Make the item appear in 6 position for palm viewport
+   */
+  .flex__item--palm--order-6 {
+    -webkit-order: 6;
+        -ms-flex-order: 6;
+            order: 6; }
+
+  /**
+   * Make the item appear in 7 position for palm viewport
+   */
+  .flex__item--palm--order-7 {
+    -webkit-order: 7;
+        -ms-flex-order: 7;
+            order: 7; }
+
+  /**
+   * Make the item appear in 8 position for palm viewport
+   */
+  .flex__item--palm--order-8 {
+    -webkit-order: 8;
+        -ms-flex-order: 8;
+            order: 8; }
+
+  /**
+   * Make the item appear in 9 position for palm viewport
+   */
+  .flex__item--palm--order-9 {
+    -webkit-order: 9;
+        -ms-flex-order: 9;
+            order: 9; }
+
+  /**
+   * Make the item appear in 10 position for palm viewport
+   */
+  .flex__item--palm--order-10 {
+    -webkit-order: 10;
+        -ms-flex-order: 10;
+            order: 10; }
+
+  /**
+   * Make the item appear in 11 position for palm viewport
+   */
+  .flex__item--palm--order-11 {
+    -webkit-order: 11;
+        -ms-flex-order: 11;
+            order: 11; }
+
+  /**
+   * Make the item appear in 12 position for palm viewport
+   */
+  .flex__item--palm--order-12 {
+    -webkit-order: 12;
+        -ms-flex-order: 12;
+            order: 12; } }
+@media screen and (min-width: 45em) and (max-width: 63.9375em) {
+  /**
+   * Make the item appear in 1 position for lap viewport
+   */
+  .flex__item--lap--order-1 {
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1; }
+
+  /**
+   * Make the item appear in 2 position for lap viewport
+   */
+  .flex__item--lap--order-2 {
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2; }
+
+  /**
+   * Make the item appear in 3 position for lap viewport
+   */
+  .flex__item--lap--order-3 {
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3; }
+
+  /**
+   * Make the item appear in 4 position for lap viewport
+   */
+  .flex__item--lap--order-4 {
+    -webkit-order: 4;
+        -ms-flex-order: 4;
+            order: 4; }
+
+  /**
+   * Make the item appear in 5 position for lap viewport
+   */
+  .flex__item--lap--order-5 {
+    -webkit-order: 5;
+        -ms-flex-order: 5;
+            order: 5; }
+
+  /**
+   * Make the item appear in 6 position for lap viewport
+   */
+  .flex__item--lap--order-6 {
+    -webkit-order: 6;
+        -ms-flex-order: 6;
+            order: 6; }
+
+  /**
+   * Make the item appear in 7 position for lap viewport
+   */
+  .flex__item--lap--order-7 {
+    -webkit-order: 7;
+        -ms-flex-order: 7;
+            order: 7; }
+
+  /**
+   * Make the item appear in 8 position for lap viewport
+   */
+  .flex__item--lap--order-8 {
+    -webkit-order: 8;
+        -ms-flex-order: 8;
+            order: 8; }
+
+  /**
+   * Make the item appear in 9 position for lap viewport
+   */
+  .flex__item--lap--order-9 {
+    -webkit-order: 9;
+        -ms-flex-order: 9;
+            order: 9; }
+
+  /**
+   * Make the item appear in 10 position for lap viewport
+   */
+  .flex__item--lap--order-10 {
+    -webkit-order: 10;
+        -ms-flex-order: 10;
+            order: 10; }
+
+  /**
+   * Make the item appear in 11 position for lap viewport
+   */
+  .flex__item--lap--order-11 {
+    -webkit-order: 11;
+        -ms-flex-order: 11;
+            order: 11; }
+
+  /**
+   * Make the item appear in 12 position for lap viewport
+   */
+  .flex__item--lap--order-12 {
+    -webkit-order: 12;
+        -ms-flex-order: 12;
+            order: 12; } }
+@media screen and (min-width: 45em) {
+  /**
+   * Make the item appear in 1 position for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--order-1 {
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1; }
+
+  /**
+   * Make the item appear in 2 position for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--order-2 {
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2; }
+
+  /**
+   * Make the item appear in 3 position for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--order-3 {
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3; }
+
+  /**
+   * Make the item appear in 4 position for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--order-4 {
+    -webkit-order: 4;
+        -ms-flex-order: 4;
+            order: 4; }
+
+  /**
+   * Make the item appear in 5 position for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--order-5 {
+    -webkit-order: 5;
+        -ms-flex-order: 5;
+            order: 5; }
+
+  /**
+   * Make the item appear in 6 position for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--order-6 {
+    -webkit-order: 6;
+        -ms-flex-order: 6;
+            order: 6; }
+
+  /**
+   * Make the item appear in 7 position for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--order-7 {
+    -webkit-order: 7;
+        -ms-flex-order: 7;
+            order: 7; }
+
+  /**
+   * Make the item appear in 8 position for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--order-8 {
+    -webkit-order: 8;
+        -ms-flex-order: 8;
+            order: 8; }
+
+  /**
+   * Make the item appear in 9 position for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--order-9 {
+    -webkit-order: 9;
+        -ms-flex-order: 9;
+            order: 9; }
+
+  /**
+   * Make the item appear in 10 position for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--order-10 {
+    -webkit-order: 10;
+        -ms-flex-order: 10;
+            order: 10; }
+
+  /**
+   * Make the item appear in 11 position for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--order-11 {
+    -webkit-order: 11;
+        -ms-flex-order: 11;
+            order: 11; }
+
+  /**
+   * Make the item appear in 12 position for lap-and-up viewport
+   */
+  .flex__item--lap-and-up--order-12 {
+    -webkit-order: 12;
+        -ms-flex-order: 12;
+            order: 12; } }
+@media screen and (max-width: 63.9375em) {
+  /**
+   * Make the item appear in 1 position for portable viewport
+   */
+  .flex__item--portable--order-1 {
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1; }
+
+  /**
+   * Make the item appear in 2 position for portable viewport
+   */
+  .flex__item--portable--order-2 {
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2; }
+
+  /**
+   * Make the item appear in 3 position for portable viewport
+   */
+  .flex__item--portable--order-3 {
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3; }
+
+  /**
+   * Make the item appear in 4 position for portable viewport
+   */
+  .flex__item--portable--order-4 {
+    -webkit-order: 4;
+        -ms-flex-order: 4;
+            order: 4; }
+
+  /**
+   * Make the item appear in 5 position for portable viewport
+   */
+  .flex__item--portable--order-5 {
+    -webkit-order: 5;
+        -ms-flex-order: 5;
+            order: 5; }
+
+  /**
+   * Make the item appear in 6 position for portable viewport
+   */
+  .flex__item--portable--order-6 {
+    -webkit-order: 6;
+        -ms-flex-order: 6;
+            order: 6; }
+
+  /**
+   * Make the item appear in 7 position for portable viewport
+   */
+  .flex__item--portable--order-7 {
+    -webkit-order: 7;
+        -ms-flex-order: 7;
+            order: 7; }
+
+  /**
+   * Make the item appear in 8 position for portable viewport
+   */
+  .flex__item--portable--order-8 {
+    -webkit-order: 8;
+        -ms-flex-order: 8;
+            order: 8; }
+
+  /**
+   * Make the item appear in 9 position for portable viewport
+   */
+  .flex__item--portable--order-9 {
+    -webkit-order: 9;
+        -ms-flex-order: 9;
+            order: 9; }
+
+  /**
+   * Make the item appear in 10 position for portable viewport
+   */
+  .flex__item--portable--order-10 {
+    -webkit-order: 10;
+        -ms-flex-order: 10;
+            order: 10; }
+
+  /**
+   * Make the item appear in 11 position for portable viewport
+   */
+  .flex__item--portable--order-11 {
+    -webkit-order: 11;
+        -ms-flex-order: 11;
+            order: 11; }
+
+  /**
+   * Make the item appear in 12 position for portable viewport
+   */
+  .flex__item--portable--order-12 {
+    -webkit-order: 12;
+        -ms-flex-order: 12;
+            order: 12; } }
+@media screen and (min-width: 64em) {
+  /**
+   * Make the item appear in 1 position for desk viewport
+   */
+  .flex__item--desk--order-1 {
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1; }
+
+  /**
+   * Make the item appear in 2 position for desk viewport
+   */
+  .flex__item--desk--order-2 {
+    -webkit-order: 2;
+        -ms-flex-order: 2;
+            order: 2; }
+
+  /**
+   * Make the item appear in 3 position for desk viewport
+   */
+  .flex__item--desk--order-3 {
+    -webkit-order: 3;
+        -ms-flex-order: 3;
+            order: 3; }
+
+  /**
+   * Make the item appear in 4 position for desk viewport
+   */
+  .flex__item--desk--order-4 {
+    -webkit-order: 4;
+        -ms-flex-order: 4;
+            order: 4; }
+
+  /**
+   * Make the item appear in 5 position for desk viewport
+   */
+  .flex__item--desk--order-5 {
+    -webkit-order: 5;
+        -ms-flex-order: 5;
+            order: 5; }
+
+  /**
+   * Make the item appear in 6 position for desk viewport
+   */
+  .flex__item--desk--order-6 {
+    -webkit-order: 6;
+        -ms-flex-order: 6;
+            order: 6; }
+
+  /**
+   * Make the item appear in 7 position for desk viewport
+   */
+  .flex__item--desk--order-7 {
+    -webkit-order: 7;
+        -ms-flex-order: 7;
+            order: 7; }
+
+  /**
+   * Make the item appear in 8 position for desk viewport
+   */
+  .flex__item--desk--order-8 {
+    -webkit-order: 8;
+        -ms-flex-order: 8;
+            order: 8; }
+
+  /**
+   * Make the item appear in 9 position for desk viewport
+   */
+  .flex__item--desk--order-9 {
+    -webkit-order: 9;
+        -ms-flex-order: 9;
+            order: 9; }
+
+  /**
+   * Make the item appear in 10 position for desk viewport
+   */
+  .flex__item--desk--order-10 {
+    -webkit-order: 10;
+        -ms-flex-order: 10;
+            order: 10; }
+
+  /**
+   * Make the item appear in 11 position for desk viewport
+   */
+  .flex__item--desk--order-11 {
+    -webkit-order: 11;
+        -ms-flex-order: 11;
+            order: 11; }
+
+  /**
+   * Make the item appear in 12 position for desk viewport
+   */
+  .flex__item--desk--order-12 {
+    -webkit-order: 12;
+        -ms-flex-order: 12;
+            order: 12; } }
+/**
+ * Reverse item direction
+ */
+.flex--reverse {
+  -webkit-flex-direction: row-reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse; }
 
 /*# sourceMappingURL=style.css.map */
